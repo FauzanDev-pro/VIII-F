@@ -42,8 +42,16 @@
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 20px 0;
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+        }
+        body {
+            padding-top: 80px;
         }
         
         .header-content {
@@ -57,7 +65,9 @@
         .logo-container {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
+            margin-top: 100px;
         }
         
         .logo {
@@ -705,17 +715,6 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo-container">
-                    <div class="logo">
-                        <img src="image/spenduja.jpg" alt="SPENDUJA Logo">
-                    </div>
-                    <div class="logo">
-                        <img src="image/osis.png" alt="OSIS Logo">
-                    </div>
-                    <div class="logo">
-                        <img src="/api/placeholder/60/60" alt="Kelas 8 Logo">
-                    </div>
-                </div>
                 <div class="title-container">
                     <h1>Kelas 8F - SPENDUJA</h1>
                     <p>SPENDUJA - Bersama Meraih Masa Depan</p>
@@ -741,6 +740,10 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
+            <div class="logo-container">
+                <img src="image/spenduja.jpg" alt="SPENDUJA" width="100">
+                <img src="image/osis.png" alt="OSIS" width="100">
+                <img src="image/kelas8f.jpg" alt="Kelas 8F" width="100">
             <div class="hero-content">
                 <h2>Selamat Datang di Kelas 8</h2>
                 <p>SMP Negeri 02 Jatibarang (SPENDUJA) - Tempat kami belajar, bertumbuh, dan meraih prestasi bersama.</p>
