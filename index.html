@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Kelas 8 - SPENDUJA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --accent-color: #e74c3c;
+            --hover-color: #1abc9c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        .logo:hover {
+            transform: scale(1.1);
+        }
+        
+        .title-container h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .title-container p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .nav-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            background: url('/api/placeholder/1200/400') center/cover no-repeat;
+            background-attachment: fixed;
+            color: white;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(46, 204, 113, 0.9));
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        .btn:hover {
+            background: var(--hover-color);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* About Section */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 36px;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Feature Cards */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-img {
+            height: 200px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .feature-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .feature-card:hover .feature-img img {
+            transform: scale(1.1);
+        }
+        
+        .feature-content {
+            padding: 20px;
+        }
+        
+        .feature-content h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: var(--dark-color);
+        }
+        
+        .feature-content p {
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Anggota Kelas */
+        .anggota-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .anggota-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .anggota-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .anggota-img {
+            height: 180px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .anggota-img img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .anggota-details {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .anggota-details h3 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .anggota-details p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .anggota-details .role {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        
+        /* Organisasi Kelas */
+        .org-structure {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+        
+        .org-level {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .org-item {
+            background: linear-gradient(135deg, var(--primary-color), #36D1DC);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 200px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .org-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .org-item::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 15px;
+            background-color: #ddd;
+        }
+        
+        .org-level:last-child .org-item::after {
+            display: none;
+        }
+        
+        .org-item h4 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .org-item p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Jadwal Piket */
+        .schedule-container {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .schedule-table th, .schedule-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .schedule-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+        }
+        
+        .schedule-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .schedule-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .footer-section p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-section ul li a:hover {
+            opacity: 1;
+        }
+        
+        .footer-section ul li a i {
+            color: var(--primary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 14px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+            }
+        }
+        
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-container {
+                margin-bottom: 20px;
+            }
+            
+            .nav-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            nav {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease;
+            }
+            
+            nav.active {
+                max-height: 300px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                padding: 20px 0;
+            }
+            
+            .org-level {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .org-item {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="/api/placeholder/60/60" alt="SPENDUJA Logo">
+                    </div>
+                    <div class="logo">
+                        <img src="/api/placeholder/60/60" alt="OSIS Logo">
+                    </div>
+                    <div class="logo">
+                        <img src="/api/placeholder/60/60" alt="Kelas 8 Logo">
+                    </div>
+                </div>
+                <div class="title-container">
+                    <h1>Kelas 8 SMP Negeri 02 Jatibarang</h1>
+                    <p>SPENDUJA - Bersama Meraih Masa Depan</p>
+                </div>
+                <div class="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#anggota">Anggota</a></li>
+                        <li><a href="#organisasi">Organisasi</a></li>
+                        <li><a href="#jadwal">Jadwal Piket</a></li>
+                        <li><a href="#gallery">Galeri</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Selamat Datang di Kelas 8</h2>
+                <p>SMP Negeri 02 Jatibarang (SPENDUJA) - Tempat kami belajar, bertumbuh, dan meraih prestasi bersama.</p>
+                <a href="#about" class="btn">Lihat Profil Kelas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header animate">
+                <h2>Tentang Kelas Kami</h2>
+                <p>Mengenal lebih dekat kelas 8 SMP Negeri 02 Jatibarang yang berprestasi dan penuh semangat.</p>
+            </div>
+            <div class="features">
+                <div class="feature-card animate">
+                    <div class="feature-img">
+                        <img src="/api/placeholder/400/250" alt="Prestasi Kelas">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Prestasi Kelas</h3>
+                        <p>Kelas kami telah meraih berbagai prestasi baik di bidang akademik maupun non-akademik, termasuk juara lomba kebersihan dan kedisiplinan.</p>
+                        <a href="#" class="btn">Lihat Prestasi</a>
+                    </div>
+                </div>
+                <div class="feature-card animate">
+                    <div class="feature-img">
+                        <img src="/api/placeholder/400/250" alt="Kegiatan Kelas">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Kegiatan Kelas</h3>
+                        <p>Berbagai kegiatan rutin dan proyek kolaboratif yang kami lakukan untuk meningkatkan kekompakan dan kreativitas kelas.</p>
+                        <a href="#" class="btn">Lihat Kegiatan</a>
+                    </div>
+                </div>
+                <div class="feature-card animate">
+                    <div class="feature-img">
+                        <img src="/api/placeholder/400/250" alt="Profil Kelas">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Profil Kelas</h3>
+                        <p>Kelas 8 SPENDUJA memiliki 35 siswa dengan beragam bakat dan minat. Motto kelas kami adalah "Bersatu dalam Keberagaman, Bertumbuh dalam Kebersamaan."</p>
+                        <a href="#" class="btn">Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anggota Kelas Section -->
+    <section id="anggota" style="background-color: #f5f9fa;">
+        <div class="container">
+            <div class="section-header animate">
+                <h2>Anggota Kelas</h2>
+                <p>Kenali wajah-wajah cemerlang yang membentuk keluarga kelas 8 SPENDUJA.</p>
+            </div>
+            <div class="anggota-list">
+                <!-- Anggota 1 -->
+                <div class="anggota-card animate">
+                    <div class="anggota-img">
+                        <img src="/api/placeholder/100/100" alt="Anggota 1">
+                    </div>
+                    <div class="anggota-details">
+                        <h3>Ahmad Rizki</h3>
+                        <p>NIS: 20230001</p>
+                        <span class="role">Ketua Kelas</span>
+                    </div>
+                </div>
+                <!-- Anggota 2 -->
+                <div class="anggota-card animate">
+                    <div class="anggota-img">
+                        <img src="/api/placeholder/100/100" alt="Anggota 2">
+                    </div>
+                    <div class="anggota-details">
+                        <h3>Siti Nurhaliza</h3>
+                        <p>NIS: 20230002</p>
+                        <span class="role">Wakil Ketua</span>
+                    </div>
+                </div>
+                <!-- Anggota 3 -->
+                <div class="anggota-card animate">
+                    <div class="anggota-img">
+                        <img src="/api/placeholder/100/100" alt="Anggota 3">
+                    </div>
+                    <div class="anggota-details">
+                        <h3>Budi Santoso</h3>
+                        <p>NIS: 20230003</p>
+                        <span class="role">Sekretaris</span>
+                    </div>
+                </div>
+                <!-- Anggota 4 -->
+                <div class="anggota-card animate">
+                    <div class="anggota-img">
+                        <img src="/api/placeholder/100/100" alt="Anggota 4">
+                    </div>
+                    <div class="anggota-details">
+                        <h3>Maya Wijaya</h3>
+                        <p>NIS: 20230004</p>
+                        <span class="role">Bendahara</span>
+                    </div>
+                </div>
+                <!-- Anggota 5 -->
+                <div class="anggota-card animate">
+                    <div class="anggota-img">
+                        <img src="/api/placeholder/100/100" alt="Anggota 5">
+                    </div>
+                    <div class="anggota-details">
+                        <h3>Deni Kurniawan</h3>
+                        <p>NIS: 20230005</p>
+                        <span class="role">Siswa</span>
+                    </div>
+                </div>
+                <!-- Anggota 6 -->
+                <div class="anggota-card animate">
+                    <div class="anggota-img">
+                        <img src="/api/placeholder/100/100" alt="Anggota 6">
+                    </div>
+                    <div class="anggota-details">
+                        <h3>Rina Fitriani</h3>
+                        <p>NIS: 20230006</p>
+                        <span class="role">Siswa</span>
+                    </div>
+                </div>
+                <!-- Anggota 7 -->
+                <div class="anggota-card animate">
+                    <div class="anggota-img">
+                        <img src="/api/placeholder/100/100" alt="Anggota 7">
+                    </div>
+                    <div class="anggota-details">
+                        <h3>Andi Pratama</h3>
+                        <p>NIS: 20230007</p>
+                        <span class="role">Siswa</span>
+                    </div>
+                </div>
+                <!-- Anggota 8 -->
+                <div class="anggota-card animate">
+                    <div class="anggota-img">
+                        <img src="/api/placeholder/100/100" alt="Anggota 8">
+                    </div>
+                    <div class="anggota-details">
+                        <h3>Indah Permata</h3>
+                        <p>NIS: 20230008</p>
+                        <span class="role">Siswa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organisasi Kelas Section -->
+    <section id="organisasi">
+        <div class="container">
+            <div class="section-header animate">
+                <h2>Struktur Organisasi Kelas</h2>
+                <p>Pengelolaan kelas yang terstruktur untuk menciptakan lingkungan belajar kondusif dan kolaboratif.</p>
+            </div>
+            <div class="org-structure animate">
+                <div class="org-chart">
+                    <!-- Level 1: Wali Kelas -->
+                    <div class="org-level">
+                        <div class="org-item">
+                            <h4>Wali Kelas</h4>
+                            <p>Ibu Sri Wulandari, S.Pd</p>
+                        </div>
+
+</div>
+                    <!-- Level 2: Pengurus Inti -->
+                    <div class="org-level">
+                        <div class="org-item">
+                            <h4>Ketua Kelas</h4>
+                            <p>Ahmad Rizki</p>
+                        </div>
+                        <div class="org-item">
+                            <h4>Wakil Ketua</h4>
+                            <p>Siti Nurhaliza</p>
+                        </div>
+                    </div>
+                    <!-- Level 3: Pengurus -->
+                    <div class="org-level">
+                        <div class="org-item">
+                            <h4>Sekretaris</h4>
+                            <p>Budi Santoso</p>
+                        </div>
+                        <div class="org-item">
+                            <h4>Bendahara</h4>
+                            <p>Maya Wijaya</p>
+                        </div>
+                        <div class="org-item">
+                            <h4>Keamanan</h4>
+                            <p>Deni Kurniawan</p>
+                        </div>
+                    </div>
+                    <!-- Level 4: Seksi-seksi -->
+                    <div class="org-level">
+                        <div class="org-item">
+                            <h4>Seksi Kebersihan</h4>
+                            <p>Rina Fitriani</p>
+                        </div>
+                        <div class="org-item">
+                            <h4>Seksi Keagamaan</h4>
+                            <p>Andi Pratama</p>
+                        </div>
+                        <div class="org-item">
+                            <h4>Seksi Olahraga</h4>
+                            <p>Indah Permata</p>
+                        </div>
+                        <div class="org-item">
+                            <h4>Seksi Kesenian</h4>
+                            <p>Rendi Saputra</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jadwal Piket Section -->
+    <section id="jadwal" style="background-color: #f5f9fa;">
+        <div class="container">
+            <div class="section-header animate">
+                <h2>Jadwal Piket Kelas</h2>
+                <p>Pembagian tugas harian untuk menjaga kebersihan dan kerapian kelas. Mari jaga kelas kita bersama!</p>
+            </div>
+            <div class="schedule-container animate">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Hari</th>
+                            <th>Anggota Piket</th>
+                            <th>Tugas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Senin</td>
+                            <td>Ahmad, Siti, Budi, Maya, Deni</td>
+                            <td>
+                                <ul>
+                                    <li>Menyapu dan mengepel lantai</li>
+                                    <li>Membersihkan papan tulis</li>
+                                    <li>Merapikan meja dan kursi</li>
+                                    <li>Membuang sampah</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Selasa</td>
+                            <td>Rina, Andi, Indah, Rendi, Putri</td>
+                            <td>
+                                <ul>
+                                    <li>Menyapu dan mengepel lantai</li>
+                                    <li>Membersihkan papan tulis</li>
+                                    <li>Merapikan meja dan kursi</li>
+                                    <li>Menyiram tanaman kelas</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Rabu</td>
+                            <td>Dimas, Lina, Fajar, Dewi, Rizal</td>
+                            <td>
+                                <ul>
+                                    <li>Menyapu dan mengepel lantai</li>
+                                    <li>Membersihkan papan tulis</li>
+                                    <li>Merapikan meja dan kursi</li>
+                                    <li>Membersihkan jendela</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kamis</td>
+                            <td>Anton, Dina, Rahmat, Lia, Hadi</td>
+                            <td>
+                                <ul>
+                                    <li>Menyapu dan mengepel lantai</li>
+                                    <li>Membersihkan papan tulis</li>
+                                    <li>Merapikan meja dan kursi</li>
+                                    <li>Membersihkan rak buku</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jumat</td>
+                            <td>Tono, Nina, Gita, Adi, Sinta</td>
+                            <td>
+                                <ul>
+                                    <li>Menyapu dan mengepel lantai</li>
+                                    <li>Membersihkan papan tulis</li>
+                                    <li>Merapikan meja dan kursi</li>
+                                    <li>Membersihkan area depan kelas</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sabtu</td>
+                            <td>Rudi, Tika, Bayu, Wati, Dodi</td>
+                            <td>
+                                <ul>
+                                    <li>Menyapu dan mengepel lantai</li>
+                                    <li>Membersihkan papan tulis</li>
+                                    <li>Merapikan meja dan kursi</li>
+                                    <li>Gotong royong kebersihan kelas</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header animate">
+                <h2>Galeri Kelas</h2>
+                <p>Momen-momen berkesan selama perjalanan kami di kelas 8 SPENDUJA.</p>
+            </div>
+            <div class="gallery">
+                <div class="gallery-item animate">
+                    <img src="/api/placeholder/400/300" alt="Kegiatan Kelas 1">
+                    <div class="gallery-overlay">
+                        <h3>Kegiatan Belajar</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate">
+                    <img src="/api/placeholder/400/300" alt="Kegiatan Kelas 2">
+                    <div class="gallery-overlay">
+                        <h3>Lomba Kebersihan</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate">
+                    <img src="/api/placeholder/400/300" alt="Kegiatan Kelas 3">
+                    <div class="gallery-overlay">
+                        <h3>Kegiatan Olahraga</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate">
+                    <img src="/api/placeholder/400/300" alt="Kegiatan Kelas 4">
+                    <div class="gallery-overlay">
+                        <h3>Studi Tour</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate">
+                    <img src="/api/placeholder/400/300" alt="Kegiatan Kelas 5">
+                    <div class="gallery-overlay">
+                        <h3>Presentasi Kelompok</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate">
+                    <img src="/api/placeholder/400/300" alt="Kegiatan Kelas 6">
+                    <div class="gallery-overlay">
+                        <h3>Ujian Praktikum</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate">
+                    <img src="/api/placeholder/400/300" alt="Kegiatan Kelas 7">
+                    <div class="gallery-overlay">
+                        <h3>Kegiatan Ekstrakurikuler</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate">
+                    <img src="/api/placeholder/400/300" alt="Kegiatan Kelas 8">
+                    <div class="gallery-overlay">
+                        <h3>Kunjungan Edukasi</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f5f9fa;">
+        <div class="container">
+            <div class="section-header animate">
+                <h2>Hubungi Kami</h2>
+                <p>Ingin mengetahui lebih banyak tentang kelas kami? Jangan ragu untuk menghubungi.</p>
+            </div>
+            <div class="contact-form animate">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subjek</label>
+                        <input type="text" id="subject" name="subject" placeholder="Masukkan subjek pesan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan</label>
+                        <textarea id="message" name="message" placeholder="Tulis pesan Anda" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SMP Negeri 02 Jatibarang</h3>
+                    <p>SPENDUJA - Mencetak generasi unggul dan berakhlak mulia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Navigasi Cepat</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Tentang</a></li>
+                        <li><a href="#anggota"><i class="fas fa-chevron-right"></i> Anggota</a></li>
+                        <li><a href="#organisasi"><i class="fas fa-chevron-right"></i> Organisasi</a></li>
+                        <li><a href="#jadwal"><i class="fas fa-chevron-right"></i> Jadwal Piket</a></li>
+                        <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Galeri</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Jl. Raya Jatibarang No. 123, Indramayu</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> (0234) 567890</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@spenduja.sch.id</a></li>
+                        <li><a href="#"><i class="fas fa-globe"></i> www.spenduja.sch.id</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kelas 8 SMP Negeri 02 Jatibarang. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle Mobile Navigation
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu after click
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+        
+        // Scroll Animation
+        function checkScroll() {
+            const elements = document.querySelectorAll('.animate');
+            const triggerBottom = window.innerHeight * 0.8;
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < triggerBottom) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+        
+        // Current Year
+        document.querySelector('.footer-bottom p').innerHTML = `&copy; ${new Date().getFullYear()} Kelas 8 SMP Negeri 02 Jatibarang. All Rights Reserved.`;
+    </script>
+</body>
+</html>
+
+<!-- Hamburger Menu - Letakkan di dalam tag <header> setelah .nav-toggle -->
+<div class="mobile-menu">
+    <div class="mobile-menu-container">
+        <div class="mobile-menu-header">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="/api/placeholder/60/60" alt="SPENDUJA Logo">
+                </div>
+            </div>
+            <div class="close-menu">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="mobile-menu-content">
+            <ul>
+                <li><a href="#home"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> Tentang</a></li>
+                <li><a href="#anggota"><i class="fas fa-users"></i> Anggota</a></li>
+                <li><a href="#organisasi"><i class="fas fa-sitemap"></i> Organisasi</a></li>
+                <li><a href="#jadwal"><i class="fas fa-calendar-alt"></i> Jadwal Piket</a></li>
+                <li><a href="#gallery"><i class="fas fa-images"></i> Galeri</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Kontak</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Back to Top Button - Letakkan sebelum tag </body> -->
+<a href="#home" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<!-- CSS untuk fitur tambahan - Tambahkan di dalam tag <style> -->
+<style>
+    /* Hamburger Menu Style */
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--dark-color);
+        z-index: 1000;
+        transition: left 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+    }
+    
+    .mobile-menu.active {
+        left: 0;
+    }
+    
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .mobile-menu-container {
+        padding: 20px 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        margin-bottom: 30px;
+    }
+    
+    .close-menu {
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    
+    .close-menu:hover {
+        transform: rotate(90deg);
+    }
+    
+    .mobile-menu-content {
+        flex: 1;
+    }
+    
+    .mobile-menu-content ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .mobile-menu-content ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .mobile-menu-content ul li:last-child {
+        border-bottom: none;
+    }
+    
+    .mobile-menu-content ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-content ul li a i {
+        width: 25px;
+        margin-right: 10px;
+        text-align: center;
+        color: var(--primary-color);
+    }
+    
+    .mobile-menu-content ul li a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        padding-left: 25px;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--accent-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        z-index: 99;
+    }
+    
+    .back-to-top.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .back-to-top:hover {
+        background: var(--hover-color);
+        transform: translateY(-5px);
+    }
+    
+    /* Enhanced Scroll Animations */
+    @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes zoomIn {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
+    @keyframes bounceIn {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-20px);
+        }
+        60% {
+            transform: translateY(-10px);
+        }
+    }
+    
+    /* Animation Classes */
+    .animate-fadeInLeft {
+        animation: fadeInLeft 1s forwards;
+    }
+    
+    .animate-fadeInRight {
+        animation: fadeInRight 1s forwards;
+    }
+    
+    .animate-zoomIn {
+        animation: zoomIn 0.8s forwards;
+    }
+    
+    .animate-bounceIn {
+        animation: bounceIn 1s forwards;
+    }
+    
+    /* Create overlay for menu toggle */
+    body.menu-open::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+    }
+</style>
+
+<!-- JavaScript untuk fitur tambahan - Tambahkan di dalam tag <script> sebelum tag </body> -->
+<script>
+    // Variables
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navToggle = document.querySelector('.nav-toggle');
+    const closeMenu = document.querySelector('.close-menu');
+    const backToTop = document.querySelector('.back-to-top');
+    const body = document.body;
+    
+    // Create mobile menu overlay
+    const mobileMenuOverlay = document.createElement('div');
+    mobileMenuOverlay.classList.add('mobile-menu-overlay');
+    body.appendChild(mobileMenuOverlay);
+    
+    // Toggle Mobile Menu
+    navToggle.addEventListener('click', function() {
+        mobileMenu.classList.add('active');
+        mobileMenuOverlay.classList.add('active');
+        body.classList.add('menu-open');
+    });
+    
+    // Close Mobile Menu
+    function closeMenuHandler() {
+        mobileMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        body.classList.remove('menu-open');
+    }
+    
+    closeMenu.addEventListener('click', closeMenuHandler);
+    mobileMenuOverlay.addEventListener('click', closeMenuHandler);
+    
+    // Close mobile menu when clicking on a menu item
+    document.querySelectorAll('.mobile-menu-content a').forEach(item => {
+        item.addEventListener('click', closeMenuHandler);
+    });
+    
+    // Back to Top Button
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTop.classList.add('active');
+        } else {
+            backToTop.classList.remove('active');
+        }
+    });
+    
+    // Enhanced Scroll Animations
+    function checkScrollAnimations() {
+        const elements = document.querySelectorAll('.animate');
+        const triggerBottom = window.innerHeight * 0.8;
+        
+        elements.forEach((element, index) => {
+            const elementTop = element.getBoundingClientRect().top;
+            
+            if (elementTop < triggerBottom) {
+                // Add different animation classes based on element index
+                element.classList.add('active');
+                
+                if (index % 4 === 0) {
+                    element.classList.add('animate-fadeInLeft');
+                } else if (index % 4 === 1) {
+                    element.classList.add('animate-fadeInRight');
+                } else if (index % 4 === 2) {
+                    element.classList.add('animate-zoomIn');
+                } else {
+                    element.classList.add('animate-bounceIn');
+                }
+            }
+        });
+    }
+    
+    // Add parallax effect to hero section
+    window.addEventListener('scroll', function() {
+        const hero = document.querySelector('.hero');
+        const scrollPosition = window.pageYOffset;
+        
+        if (hero) {
+            hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        }
+    });
+    
+    // Initialize animations
+    window.addEventListener('scroll', checkScrollAnimations);
+    window.addEventListener('load', checkScrollAnimations);
+    
+    // Add hover effects to navigation items
+    const navItems = document.querySelectorAll('nav ul li a');
+    
+    navItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.classList.add('animate__animated', 'animate__pulse');
+        });
+        
+        item.addEventListener('animationend', function() {
+            this.classList.remove('animate__animated', 'animate__pulse');
+        });
+    });
+    
+    // Add smooth scroll for Back to Top button
+    backToTop.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Add loading animation
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.body.classList.add('loaded');
+        }, 500);
+    });
+    
+    // Add active class to current section in navigation
+    function highlightNav() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const mobileNavLinks = document.querySelectorAll('.mobile-menu-content ul li a');
+        
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (pageYOffset >= (sectionTop - 300)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+                link.classList.add('active');
+            }
+        });
+        
+        mobileNavLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', highlightNav);
+    window.addEventListener('load', highlightNav);
+</script>
+
